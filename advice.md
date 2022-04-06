@@ -45,3 +45,32 @@
 - Use enumerations to represent sets of named constants;
 - Prefer class enums over “plain” enums to minimize surprises;
 - Define operations on enumerations for safe and simple use;
+
+## Modularity
+
+- Distinguish between declarations (used as interfaces) and definitions (used as implementations);
+- Use header files to represent interfaces and to emphasize logical structure;
+- #include a header in the source file that implements its functions;
+- Avoid non-inline function definitions in headers;
+- Prefer modules over headers (where modules are supported);
+- Use namespaces to express logical structure;
+- Use using-directives for transition, for foundational libraries (such as std), or within a local scope;
+- Don’t put a using-directive in a header file;
+- Throw an exception to indicate that you cannot perform an assigned task;
+- Use exceptions for error handling only; 
+- Use error codes when an immediate caller is expected to handle the error;
+- Throw an exception if the error is expected to perculate up through many function calls;
+- If in doubt whether to use an exception or an error code, prefer exceptions;
+- Develop an error-handling strategy early in a design;
+- Use purpose-designed user-defined types as exceptions (not built-in types);
+- Don’t try to catch every exception in every function;
+- Prefer RAII to explicit try-blocks;
+- If your function may not throw, declare it noexcept;
+- Let a constructor establish an invariant, and throw if it cannot;
+- Design your error-handling strategy around invariants;
+- What can be checked at compile time is usually best checked at compile time;
+- Pass “small” values by value and “large“ values by references;
+- Prefer pass-by-const-reference over plain pass-by-reference;
+- Return values as function-return values (rather than by out-parameters);
+- Don’t overuse return-type deduction;
+- Don’t overuse structured binding; using a named return type is often clearer documentation;
