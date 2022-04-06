@@ -1,6 +1,14 @@
+// @namespace
 // C++ offers namespaces as a mechanism for expressing 
 // that some declarations belong together and 
 // that their names shouldn’t clash with other names.
+
+// A using-directive makes unqualified names from the named namespace accessible from the scope in which we placed the directive.
+// By using a using-directive, we lose the ability to selectively use names from that namespace.
+// so this facility should be used carefully, 
+// usually for a library that’s pervasive in an application (e.g., std) or 
+// during a transition for an application that didn’t use namespaces.
+using namespace std;
 
 // By putting my code into the namespace My_code, 
 // I make sure that my names do not conflict with the standard-library names in namespace std.
@@ -30,4 +38,14 @@ int My_code::main()
 int main()
 {
     return My_code::main();
+}
+
+void my_code(vector<int>& x, vector<int>& y)
+{
+    // A using-declaration makes a name from a namespace usable as if it was declared in the scope in which it appears.
+    using std::swap; // use the standard-library swap
+    // ...
+    swap(x, y); // std::swap()
+    other::swap(x, y); // some other swap()
+    // ...
 }
