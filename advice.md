@@ -74,3 +74,30 @@
 - Return values as function-return values (rather than by out-parameters);
 - Don’t overuse return-type deduction;
 - Don’t overuse structured binding; using a named return type is often clearer documentation;
+
+## Classes
+
+- Express ideas directly in code;
+- A concrete type is the simplest kind of class. Where applicable, prefer a concrete type over more complicated classes and over plain data structures;
+- Use concrete classes to represent simple concepts;
+- Prefer concerete classes over class hierarchies for performance-critical components;
+- Define constructors to handle initialization of objects;
+- Make a function a member only if it needs direct access to the representation of a class;
+- Define operators primarily to mimic conventional usage;
+- Use nonmember functions for symmetric operators;
+- Declare a member function that does not modify the state of its object const;
+- If a constructor acquires a resource, its class needs a destructor to release the resource;
+- Avoid “naked” new and delete operations;
+- Use resource handles and RAII to manage resources;
+- If a class is a container, give it an initializer-list constructor;
+- Use abstract classes as interfaces when complete separation of interface and implementation is needed;
+- Access polymorphic objects through pointers and references;
+- An abstract class typically doesn’t need a constructor;
+- Use class hierarchies to represent concepts with inherent hierarchical structure;
+- A class with a virtual function should have a virtual destructor;
+- Use override to make overriding explicit in large class hierarchies;
+- When designing a class hierarchy, distinguish between implementation inheritance and interface inheritance;
+- Use dynamic_cast where class hierarchy navigation is unavoidable;
+- Use dynamic_cast to a reference type when failure to find the required class is considered a failure;
+- Use dynamic_cast to a pointer type when failure to find the required class is considered a valid alternative;
+- Use unique_ptr or shared_ptr to avoid forgetting to delete objects created using new;
