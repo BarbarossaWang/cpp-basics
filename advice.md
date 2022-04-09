@@ -101,3 +101,21 @@
 - Use dynamic_cast to a reference type when failure to find the required class is considered a failure;
 - Use dynamic_cast to a pointer type when failure to find the required class is considered a valid alternative;
 - Use unique_ptr or shared_ptr to avoid forgetting to delete objects created using new;
+
+## Essential Operations
+
+- Control construction, copy, move, and destruction of objects;
+- Design constructors, assignments, and the destructor as a matched set of operations;
+- Define all essential operations or none;
+- If a default constructor, assignment, or destructor is appropriate, let the compiler generate it (don’t rewrite it yourself);
+- If a class has a pointer member, it probably needs a user-defined or deleted destructor, copy and move;
+- If a class has a destructor, it probably needs user-defined or deleted copy and move;
+- By default, declare single-argument constructors explicit;
+- If a class member has a reasonable default value, provide it as a data member initializer;
+- Redefine or prohibit copying if the default is not appropriate for a type;
+- Return containers by value (relying on move for efficiency);
+- For large operands, use const reference argument types;
+- Provide strong resource safety; that is, never leak anything that you think of as a resource;
+- If a class is a resource handle, it needs a user-defined constructor, a destructor, and non-default copy operations;
+- Overload operations to mimic conventional usage;
+- Follow the standard-library container design;
