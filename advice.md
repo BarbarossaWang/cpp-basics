@@ -119,3 +119,42 @@
 - If a class is a resource handle, it needs a user-defined constructor, a destructor, and non-default copy operations;
 - Overload operations to mimic conventional usage;
 - Follow the standard-library container design;
+
+## Templates
+- Use templates to express algorithms that apply to many argument types;
+- Use templates to express containers;
+- Use templates to raise the level of abstraction of code;
+- Templates are type safe, but checking happens too late;
+- Let constructors or function templates deduce class template argument types;
+- Use function objects as arguments to algorithms;
+- Use a lambda if you need a simple function object in one place only;
+- A virtual function member cannot be a template member function;
+- Use template aliases to simplify notation and hide implementation details;
+- To use a template, make sure its definition (not just its declaration) is in scope;
+- Templates offer compile-time “duck typing”;
+- There is no separate compilation of templates: #include template definitions in every translation unit that uses them.
+
+## Concepts
+- Templates provide a general mechanism for compile-time programming;
+- When designing a template, carefully consider the concepts (requirements) assumed for its template arguments;
+- When designing a template, use a concrete version for initial implementation, debugging, and measurement;
+- Use concepts as a design tool;
+- Specify concepts for all template arguments;
+- Whenever possible use standard concepts (e.g., the Ranges concepts);
+- Use a lambda if you need a simple function object in one place only;
+- There is no separate compilation of templates: #include template definitions in every translation unit that uses them.
+- Use templates to express containers and ranges;
+- Avoid “concepts” without meaningful semantics;
+- Require a complete set of operations for a concept;
+- Use variadic templates when you need a function that takes a variable number of arguments of a variety of types;
+- Don’t use variadic templates for homogeneous argument lists (prefer initializer lists for that);
+- To use a template, make sure its definition (not just its declaration) is in scope;
+- Templates offer compile-time “duck typing”;
+
+# Library Overview
+
+- Don’t reinvent the wheel; use libraries;
+- When you have a choice, prefer the standard library over other libraries;
+- Do not think that the standard library is ideal for everything;
+- Remember to #include the headers for the facilities you use;
+- Remember that standard-library facilities are defined in namespace std;
