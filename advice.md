@@ -151,10 +151,70 @@
 - To use a template, make sure its definition (not just its declaration) is in scope;
 - Templates offer compile-time “duck typing”;
 
-# Library Overview
+## Library Overview
 
 - Don’t reinvent the wheel; use libraries;
 - When you have a choice, prefer the standard library over other libraries;
 - Do not think that the standard library is ideal for everything;
 - Remember to #include the headers for the facilities you use;
 - Remember that standard-library facilities are defined in namespace std;
+
+## Strings and Regular Expressions
+
+- Use std::string to own character sequences;
+- Prefer string operations to C-style string functions;
+- Use string to declare variables and members rather than as a base class;
+- Return strings by value (rely on move semantics);
+- Directly or indirectly, use substr() to read substrings and replace() to write substrings;
+- A string can grow and shrink, as needed;
+- Use at() rather than iterators or [ ] when you want range checking;
+- Use iterators and [ ] rather than at() when you want to optimize speed;
+- string input doesn’t overflow;
+- Use c_str() to produce a C-style string representation of a string (only) when you have to;
+- Use a stringstream or a generic value extraction function (such as to\<X\>) for numeric conversion of strings;
+- A basic_string can be used to make strings of characters on any type;
+- Use the s suffix for string literals meant to be standard-library strings;
+- Use string_view as an argument of functions that needs to read character sequences stored in various ways;
+- Use gsl::string_span as an argument of functions that needs to write character sequences stored in various ways;
+- Think of a string_view as a kind of pointer with a size attached; it does not own its characters;
+- Use the sv suffix for string literals meant to be standard-library string_views;
+- Use regex for most conventional uses of regular expressions;
+- Prefer raw string literals for expressing all but the simplest patterns;
+- Use regex_match() to match a complete input;
+- Use regex_search() to search for a pattern in an input stream;
+- The regular expression notation can be adjusted to match various standards;
+- The default regular expression notation is that of ECMAScript;
+- Be restrained; regular expressions can easily become a write-only language;
+- Note that \i allows you to express a subpattern in terms of a previous subpattern;
+- Use ? to make patterns “lazy”;
+- Use regex_iterators for iterating over a stream looking for a pattern;
+
+## Input and Output
+- iostreams are type-safe, type-sensitive, and extensible;
+- Use character-level input only when you have to;
+- When reading, always consider ill-formed input;
+- Avoid endl;
+- Define << and >> for user-defined types with values that have meaningful textual representations;
+- Use cout for normal output and cerr for errors;
+- There are iostreams for ordinary characters and wide characters, and you can define an iostream for any kind of character;
+- Binary I/O is supported;
+- There are standard iostreams for standard I/O streams, files, and strings;
+- Chain << operations for a terser notation;
+- Chain >> operations for a terser notation;
+- Input into strings does not overflow;
+- By default >> skips initial whitespace;
+- Use the stream state fail to handle potentially recoverable I/O errors;
+- You can define << and >> operators for your own types;
+- You don’t need to modify istream or ostream to add new << and >> operators;
+- Use manipulators to control formatting;
+- precision() specifications apply to all following floating-point output operations;
+- Floating-point format specifications (e.g., scientific) apply to all following floating-point output operations;
+- #include \<ios\> when using standard manipulators;
+- #include \<iomanip\> when using standard manipulators taking arguments;
+- Don’t try to copy a file stream.
+- Remember to check that a file stream is attached to a file before using it;
+- Use stringstreams for in-memory formatting;
+- You can define conversions between any two types that both have string representation;
+- C-style I/O is not type-safe;
+- Unless you use printf-family functions call ios_base::sync_with_stdio(false); §10.9;
+- Prefer \<filesystem\> to direct use of a specific operating system interfaces;  

@@ -7,7 +7,7 @@
 // When we talk about portability of C++ programs, we usually mean portability of source code; that is, the source code can be successfully compiled and run on a variety of systems.
 
 // The ISO C++ standard defines two kinds of entities:
-// Core language features*, such as built-in types.
+// Core language features, such as built-in types.
 // Standard-library components, such as containers (e.g., vector and map) and I/O operations (e.g., << and getline())
 
 // C++ is a statically typed language. That is, the type of every entity (e.g., object, value, name, and expression) must be known to the compiler at its point of use. 
@@ -16,11 +16,12 @@
 // This defines a function called main,  which takes no arguments and does nothing.
 int main() { } //        the minimal C++ program
 
-// Curly braces, { }, express grouping in C++. Here, they indicate the start and end of the function body. The double slash, //, begins a comment that extends to the end of the line. A comment is for the human reader; the compiler ignores comments.
+// Curly braces, { }, express grouping in C++. Here, they indicate the start and end of the function body. 
+// The double slash, //, begins a comment that extends to the end of the line. A comment is for the human reader; the compiler ignores comments.
 
-// Every C++ program must have exactly one global function named <code>main()</code>. The program starts by executing that function. 
-// The <code>int</code> value returned by <code>main()</code>, if any, is the program's return value to the system. 
-// If no value is returned, the system will receive a value indicating successful completion. A nonzero value from <code>main()</code> indicates failure. 
+// Every C++ program must have exactly one global function named main(). The program starts by executing that function. 
+// The int value returned by main(), if any, is the program's return value to the system. 
+// If no value is returned, the system will receive a value indicating successful completion. A nonzero value from main() indicates failure. 
 
 // The line #include <iostream> instructs the compiler to include the declarations of the standard stream I/O facilities as found in iostream.
 #include <iostream>
