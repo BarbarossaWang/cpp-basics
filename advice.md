@@ -190,6 +190,7 @@
 - Use regex_iterators for iterating over a stream looking for a pattern;
 
 ## Input and Output
+
 - iostreams are type-safe, type-sensitive, and extensible;
 - Use character-level input only when you have to;
 - When reading, always consider ill-formed input;
@@ -217,4 +218,47 @@
 - You can define conversions between any two types that both have string representation;
 - C-style I/O is not type-safe;
 - Unless you use printf-family functions call ios_base::sync_with_stdio(false); §10.9;
-- Prefer \<filesystem\> to direct use of a specific operating system interfaces;  
+- Prefer \<filesystem\> to direct use of a specific operating system interfaces;
+
+## Containers
+
+- An STL container defines a sequence;
+- STL containers are resource handles;
+- Use vector as your default container;
+- For simple traversals of a container, use a range-for loop or a begin/end pair of iterators;
+- Use reserve() to avoid invalidating pointers and iterators to elements;
+- Don’t assume performance benefits from reserve() without measurement;
+- Use push_back() or resize() on a container rather than realloc() on an array;
+- Don’t use iterators into a resized vector;
+- Do not assume that [ ] range checks;
+- Use at() when you need guaranteed range checks;
+- Use range-for and standard-library algorithms for cost-free avoidance of range errors;
+- Elements are copied into a container;
+- To preserve polymorphic behavior of elements, store pointers;
+- Insertion operators, such as insert() and push_back(), are often surprisingly efficient on a vector;
+- Use forward_list for sequences that are usually empty;
+- When it comes to performance, don’t trust your intuition: measure;
+- A map is usually implemented as a red-black tree;
+- An unordered_map is a hash table;
+- Pass a container by reference and return a container by value;
+- For a container, use the ()-initializer syntax for sizes and the {}-initializer syntax for lists of elements;
+- Prefer compact and contiguous data structures;
+- A list is relatively expensive to traverse;
+- Use unordered containers if you need fast lookup for large amounts of data;
+- Use ordered associative containers (e.g., map and set) if you need to iterate over their elements in order;
+- Use unordered containers for element types with no natural order (e.g., no reasonable <);
+- Experiment to check that you have an acceptable hash function;
+- A hash function obtained by combining standard hash functions for elements using the exclusive-or operator (^) is often good;
+- Know your standard-library containers and prefer them to handcrafted data structures;
+
+## Algorithms
+
+- An STL algorithm operates on one or more sequences;
+- An input sequence is half-open and defined by a pair of iterators;
+- When searching, an algorithm usually returns the end of the input sequence to indicate “not found”;
+- Algorithms do not directly add or subtract elements from their argument sequences;
+- When writing a loop, consider whether it could be expressed as a general algorithm;
+- Use predicates and other function objects to give standard algorithms a wider range of meanings;
+- A predicate must not modify its argument;
+- Know your standard-library algorithms and prefer them to hand-crafted loops;
+- When the pair-of-iterators style becomes tedious, introduce a container/range algorithm;
