@@ -262,3 +262,36 @@
 - A predicate must not modify its argument;
 - Know your standard-library algorithms and prefer them to hand-crafted loops;
 - When the pair-of-iterators style becomes tedious, introduce a container/range algorithm;
+
+## Utilities
+
+- A library doesn’t have to be large or complicated to be useful;
+- A resource is anything that has to be acquired and (explicitly or implicitly) released;
+- Use resource handles to manage resources (RAII);
+- Use unique_ptr to refer to objects of polymorphic type;
+- Use shared_ptr to refer to shared objects (only);
+- Prefer resource handles with specific semantics to smart pointers;
+- Prefer unique_ptr to shared_ptr;
+- Use make_unique() to construct unique_ptrs;
+- Use make_shared() to construct shared_ptrs;
+- Prefer smart pointers to garbage collection;
+- Don’t use std::move();
+- Use std::forward() exclusively for forwarding;
+- Never read from an object after std::move()ing or std::forward()ing it;
+- Prefer spans to pointer-plus-count interfaces;
+- Use array where you need a sequence with a constexpr size;
+- Prefer array over built-in arrays;
+- Use bitset if you need N bits and N is not necessarily the number of bits in a built-in integer type;
+- Don’t overuse pair and tuple; named structs often lead to more readable code;
+- When using pair, use template argument deduction or make_pair() to avoid redundant type specification;
+- When using tuple, use template argument deduction and make_tuple() to avoid redundant type specification;
+- Prefer variant to explicit use of unions;
+- Use allocators to prevent memory fragmentation;
+- Time your programs before making claims about efficiency;
+- Use duration_cast to report time measurements with proper units;
+- When specifying a duration, use proper units;
+- Use mem_fn() or a lambda to create function objects that can invoke a member function when called using the traditional function call notation;
+- Use function when you need to store something that can be called;
+- You can write code to explicitly depend on properties of types;
+- Prefer concepts over traits and enable_if whenever you can;
+- Use aliases and type predicates to simplify notation;
