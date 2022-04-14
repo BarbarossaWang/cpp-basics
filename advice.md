@@ -295,3 +295,72 @@
 - You can write code to explicitly depend on properties of types;
 - Prefer concepts over traits and enable_if whenever you can;
 - Use aliases and type predicates to simplify notation;
+
+## Numberic
+
+- Numerical problems are often subtle. If you are not 100% certain about the mathematical aspects of a numerical problem, either take expert advice, experiment, or do both;
+- Don’t try to do serious numeric computation using only the bare language; use libraries;
+- Consider accumulate(), inner_product(), partial_sum(), and adjacent_difference() before you write a loop to compute a value from a sequence;
+- Use std::complex for complex arithmetic;
+- Bind an engine to a distribution to get a random number generator;
+- Be careful that your random numbers are sufficiently random;
+- Don’t use the C standard-library rand(); it isn’t insufficiently random for real uses;
+- Use valarray for numeric computation when run-time efficiency is more important than flexibility with respect to operations and element types;
+- Properties of numeric types are accessible through numeric_limits;
+- Use numeric_limits to check that the numeric types are adequate for their use;
+
+## Concurrency
+
+- Use concurrency to improve responsiveness or to improve throughput;
+- Work at the highest level of abstraction that you can afford;
+- Consider processes as an alternative to threads;
+- The standard-library concurrency facilities are type safe;
+- The memory model exists to save most programmers from having to think about the machine architecture level of computers;
+- The memory model makes memory appear roughly as naively expected;
+- Atomics allow for lock-free programming;
+- Leave lock-free programming to experts;
+- Sometimes, a sequential solution is simpler and faster than a concurrent solution;
+- Avoid data races;
+- Prefer parallel algorithms to direct use of concurrency;
+- A thread is a type-safe interface to a system thread;
+- Use join() to wait for a thread to complete;
+- Avoid explicitly shared data whenever you can;
+- Prefer RAII to explicit lock/unlock;
+- Use scoped_lock to manage mutexes;
+- Use shared_lock to implement reader-write locks;
+- Use shared_lock to implement reader-write locks; 
+- Define a mutex together with the data it protects;
+- Use condition_variables to manage communication among threads;
+- Use unique_lock (rather than scoped_lock) when you need to copy a lock or need lower-level manipulation of synchronization;
+- Use unique_lock (rather than scoped_lock) with condition_variables;
+- Don’t wait without a condition;
+- Minimize time spent in a critical section;
+- Think in terms of tasks that can be executed concurrently, rather than directly in terms of threads;
+- Value simplicity;
+- Prefer packaged_task and futures over direct use of threads and mutexes;
+- Return a result using a promise and get a result from a future;
+- Use packaged_tasks to handle exceptions thrown by tasks and to arrange for value return;
+- Use a packaged_task and a future to express a request to an external service and wait for its response;
+- Use async() to launch simple tasks;
+
+## History and Compatibility
+
+- The ISO C++ standard defines C++.
+- When chosing a style for a new project or when modernizing a code base, rely on the C++ Core Guidelines;
+- When learning C++, don’t focus on language features in isolation;
+- Don’t get stuck with decades-old language-feature sets and design techniques;
+- Before using a new feature in production code, try it out by writing small programs to test the standards conformance and performance of the implementations you plan to use.
+- For learning C++, use the most up-to-date and complete implementation of Standard C++ that you can get access to.
+- The common subset of C and C++ is not the best initial subset of C++ to learn;
+- Prefer named casts, such as static_cast over C-style casts;
+- When converting a C program to C++, first make sure that function declarations (prototypes) and standard headers are used consistently;
+- When converting a C program to C++, rename variables that are C++ keywords;
+- For portability and type safety, if you must use C, write in the common subset of C and C++;
+- When converting a C program to C++, cast the result of malloc() to the proper type or change all uses of malloc() to uses of new;
+- When converting from malloc() and free() to new and delete, consider using vector, push_back(), and reserve() instead of realloc();
+- In C++, there are no implicit conversions from ints to enumerations; use explicit type conversion where necessary.
+- For each standard C header <X.h> that places names in the global namespace, the header <cX> places the names in namespace std.
+- Use extern "C" when declaring C functions;
+- Prefer string over C-style strings (direct manipulation of zero-terminated arrays of char).
+- Prefer iostreams over stdio.
+- Prefer containers (e.g., vector) over built-in arrays.
